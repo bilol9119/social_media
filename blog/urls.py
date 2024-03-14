@@ -6,7 +6,7 @@ from django.urls import path
 from .views import (home_view, account_settings_view,
                     profile_view, following_view,
                     comment_save, profile_view2,
-                    search_view, like_view)
+                    search_view, like_view, post_uploading)
 
 
 urlpatterns = [
@@ -17,7 +17,9 @@ urlpatterns = [
     path('commentsave', comment_save, name='commentsave'),
     path('profile/<int:id>/', profile_view),
     path('search', search_view, name='search'),
-    path('like/<int:id>/', like_view, name='like')
+    path('like/<int:id>/', like_view, name='like'),
+    path('postuploading/', post_uploading, name='postuploading'),
+
 
 ]
 
