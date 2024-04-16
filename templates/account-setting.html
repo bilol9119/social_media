@@ -1,0 +1,178 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Settings</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'images/favicon' %}"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'settings/css/bootstrap.min.css' %}">
+    <!-- Typography CSS -->
+    <link rel="stylesheet" href="{% static 'settings/css/typography.css' %}">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{% static 'settings/css/settings.css' %}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'settings/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'settings/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'settings/css/fontawesome.min.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+    <!-- Useful -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <!-- useful -->
+    <script src="https://kit.fontawesome.com/9f37ddf547.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body class="sidebar-main-active right-column-fixed">
+<!-- loader Start
+<div id="loading">
+   <div id="loading-center">
+   </div>
+</div>
+-->
+<!-- loader END -->
+<!-- Wrapper Start -->
+<div class="wrapper">
+    <!-- Sidebar  -->
+
+
+    <!-- Page Content  -->
+    <div id="content-page" class="content-page">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-lg-12">
+                    <div class="iq-card">
+                        <div class="iq-card-body p-0">
+                            <div class="iq-edit-list">
+                                <ul class="iq-edit-profile d-flex nav nav-pills">
+                                    <li class="col-md-3 p-0">
+                                        <a class="nav-link active" data-toggle="pill" href="#personal-information">
+                                            Personal Information
+                                        </a>
+                                    </li>
+                                    <li class="col-md-3 p-0">
+                                        <a class="nav-link" data-toggle="pill" href="#chang-pwd">
+                                            Change Password
+                                        </a>
+                                    </li>
+                                    <li class="col-md-3 p-0">
+                                        <a class="nav-link" data-toggle="pill" href="#emailandsms">
+                                            Email and SMS
+                                        </a>
+                                    </li>
+                                    <li class="col-md-3 p-0">
+                                        <a class="nav-link" data-toggle="pill" href="#manage-contact">
+                                            Manage Contact
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="iq-edit-list-data">
+                        <div class="tab-content">
+                            <div class="tab-pane fade active show" id="personal-information" role="tabpanel">
+                                <div class="iq-card">
+                                    <div class="iq-card-header d-flex justify-content-between">
+                                        <div class="iq-header-title">
+                                            <h4 class="card-title" style="font-weight: bold;text-transform: uppercase;">
+                                                Personal <span style="color: #48dbfb;">Information</span></h4>
+                                        </div>
+                                    </div>
+                                    <div class="iq-card-body">
+                                        <form method="post" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <div class="form-group row align-items-center">
+                                                <div class="col-md-12">
+                                                    <div class="profile-img-edit">
+                                                        <img class="profile-pic" src="{{ myuser.image.url }}"
+                                                             alt="profile-pic">
+                                                        <div class="p-image">
+                                                            <i class="ri-pencil-line upload-button"></i>
+                                                            <input class="file-upload" name="image" type="file" accept="image/*"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class=" row align-items-center">
+                                                <div class="form-group col-sm-6">
+                                                    <label for="fname">First Name:</label>
+                                                    <input type="text" placeholder="{{ myuser.user.first_name }}" name="first_name" class="form-control">
+                                                </div>
+                                                <div class="form-group col-sm-6">
+                                                    <label for="uname">User Name: {{ message }}</label>
+                                                    <input type="text" placeholder="{{ myuser.user.username }}" name="username" class="form-control">
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary mr-2">Submit</button>&nbsp;
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Wrapper END -->
+
+            <!-- Wrapper END -->
+            <!-- Footer
+            <footer class="bg-white iq-footer">
+               <div class="container-fluid">
+                  <div class="row">
+                     <div class="col-lg-6">
+                        <ul class="list-inline mb-0">
+                           <li class="list-inline-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+                           <li class="list-inline-item"><a href="terms-of-service.html">Terms of Use</a></li>
+                        </ul>
+                     </div>
+                     <div class="col-lg-6 text-right">
+                        Copyright 2020 <a href="#">chatwit</a> All Rights Reserved.
+                     </div>
+                  </div>
+               </div>
+            </footer>
+         -->
+            <!-- Footer END -->
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="{% static 'settings/js/jquery.min.js' %}"></script>
+            <script src="{% static 'settings/js/popper.min.js' %}"></script>
+            <script src="{% static 'settings/js/bootstrap.min.js' %}"></script>
+            <!-- Appear JavaScript -->
+            <script src="{% static 'settings/js/jquery.appear.js' %}"></script>
+            <!-- Countdown JavaScript -->
+            <script src="{% static 'settings/js/countdown.min.js' %}"></script>
+            <!-- Counterup JavaScript -->
+            <script src="{% static 'settings/js/waypoints.min.js' %}"></script>
+            <script src="{% static 'settings/js/jquery.counterup.min.js' %}"></script>
+            <!-- Wow JavaScript -->
+            <script src="{% static 'settings/js/wow.min.js' %}"></script>
+            <!-- Apexcharts JavaScript -->
+            <script src="{% static 'settings/js/apexcharts.js' %}"></script>
+            <!-- Slick JavaScript -->
+            <script src="{% static 'settings/js/slick.min.js"' %}"></script>
+            <!-- Select2 JavaScript -->
+            <script src="{% static 'settings/js/select2.min.js' %}"></script>
+            <!-- Owl Carousel JavaScript -->
+            <script src="{% static 'settings/js/owl.carousel.min.js' %}"></script>
+            <!-- Magnific Popup JavaScript -->
+            <script src="{% static 'settings/js/jquery.magnific-popup.min.js' %}"></script>
+            <!-- Smooth Scrollbar JavaScript -->
+            <script src="{% static 'settings/js/smooth-scrollbar.js' %}"></script>
+            <!-- lottie JavaScript -->
+            <script src="{% static 'settings/js/lottie.js' %}"></script>
+            <!-- Chart Custom JavaScript -->
+            <script src="{% static 'settings/js/chart-custom.js' %}"></script>
+            <!-- Custom JavaScript -->
+            <script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>
