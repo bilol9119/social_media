@@ -34,5 +34,7 @@ def login_view(request):
 
 
 def logout_view(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     logout(request)
     return redirect('login')

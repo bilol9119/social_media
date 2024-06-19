@@ -5,8 +5,9 @@ from .models import Post, Comment, Like, Follow
 from authorization.models import MyUser
 
 
-@login_required
 def home_view(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     myuser = MyUser.objects.filter(user=request.user).first()
     follow_obj = Follow.objects.all()
     me_followed_users = [user.following for user in follow_obj]
@@ -48,6 +49,8 @@ def home_view(request):
 
 
 def search_view(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     text = request.GET.get('q')
     text = text.lower()
     print(text)
@@ -59,6 +62,8 @@ def search_view(request):
 
 
 def post_comment_view(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     myuser = MyUser.objects.filter(user=request.user).first()
     text = request.GET.get('text')
     id = request.GET.get('id')
@@ -70,6 +75,8 @@ def post_comment_view(request):
 
 
 def profile_view(request, pk):
+    if not request.user.is_authenticated:
+        return redirect('login')
     myuser = MyUser.objects.filter(id=pk).first()
     posts = Post.objects.filter(user__id=myuser.id)
     followers = len(Follow.objects.filter(following=myuser))
@@ -81,6 +88,8 @@ def profile_view(request, pk):
 
 
 def like_view(request, pk):
+    if not request.user.is_authenticated:
+        return redirect('login')
     myuser = MyUser.objects.filter(id=pk).first()
     if Like.objects.filter(user=myuser, post_id=pk).exists():
         Like.objects.filter(user=myuser, post_id=pk).delete()
@@ -91,6 +100,8 @@ def like_view(request, pk):
 
 
 def accaunt_settings_view(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     message = {}
     myuser = MyUser.objects.filter(user=request.user).first()
     if request.method == 'POST':
@@ -116,6 +127,8 @@ def accaunt_settings_view(request):
 
 
 def follow(request, pk):
+    if not request.user.is_authenticated:
+        return redirect('login')
     next = request.GET.get('next')
     myuser = MyUser.objects.filter(user=request.user).first()
     if not Follow.objects.filter(follower=myuser, following_id=pk).exists():
