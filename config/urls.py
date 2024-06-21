@@ -17,12 +17,18 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include
-
+from django.urls import re_path, path, include
+from django.views.generic import RedirectView, TemplateView
+from django.views.static import serve
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
-    path('auth/', include('authorization.urls'))
+    path('auth/', include('authorization.urls')),
+    re_path(r'^static/(?P<path>.*)$', serve),
+    re_path(
+            r'^media/(?P<path>.*)$', serve,
+            {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}
+        ),
 ]
 
 
