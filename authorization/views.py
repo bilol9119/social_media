@@ -6,6 +6,8 @@ from .models import MyUser
 
 
 def register_view(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     if request.method == 'POST':
         username = request.POST.get('username')
         email = request.POST.get('email')
